@@ -69,3 +69,7 @@ lab
 # fs data
 fsdata/*.json
 fsdata/*.data
+
+# config
+config/*.yaml
+config/*.yml

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "grpc": "^1.8.0",
+    "js-yaml": "^3.10.0",
     "lodash": "^4.17.4",
     "mongoose": "^4.13.9",
     "mz": "^2.7.0",
