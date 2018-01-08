@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "lab": "babel-node ./lab/lab.js",
-    "start": "babel-node ./src/fs/index.js"
+    "start": "babel-node ./src/index.js"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
