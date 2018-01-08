@@ -5,10 +5,14 @@
   "repository": "git@github.com:JoshOY/nohdfs.git",
   "author": "Josh Ouyang <me@joshoy.org>",
   "license": "MIT",
+  "scripts": {
+    "lab": "babel-node ./lab/lab.js"
+  },
   "dependencies": {
     "grpc": "^1.8.0",
     "lodash": "^4.17.4",
-    "mz": "^2.7.0"
+    "mz": "^2.7.0",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",

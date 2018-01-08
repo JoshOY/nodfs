@@ -62,3 +62,10 @@ typings/
 
 # dev build folder
 .devbuild
+
+# lab codes
+lab
+
+# fs data
+fsdata/*.json
+fsdata/*.data
