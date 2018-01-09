@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const Types = mongoose.Schema.Types;
 
-export default () => {
+export default (conn = mongoose) => {
   const userSchema = new mongoose.Schema({
     _id: { type: Types.ObjectId, index: { unique: true } },
     name: { type: Types.String, index: { unique: true } },
@@ -15,5 +15,5 @@ export default () => {
     toObject: { virtuals: true },
   });
 
-  return mongoose.model('User', userSchema);
+  return conn.model('User', userSchema);
 };

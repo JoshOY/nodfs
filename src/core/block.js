@@ -1,4 +1,5 @@
 import _fs from 'fs';
+import fs from 'fs-extra';
 import uuid from 'uuid';
 
 import config from './config';
@@ -34,4 +35,9 @@ export default class Block {
     const fd = _fs.openSync(prjRoot(`fsdata/${blockId}.bin`), (appendMode ? 'a' : 'w'));
     _fs.writeSync(fd, buf, offset, buf.length, position);
   }
+
+  static remove(blockId) {
+    fs.removeSync(prjRoot(`fsdata/${blockId}.bin`));
+  }
+
 }
