@@ -1670,6 +1670,10 @@ graceful-fs@~1.2.0:
   version "1.2.3"
   resolved "http://registry.npm.taobao.org/graceful-fs/download/graceful-fs-1.2.3.tgz#15a4806a57547cb2d2dbf27f42e89a8c3451b364"
 
+grpc-promise@^1.1.0:
+  version "1.1.0"
+  resolved "http://registry.npm.taobao.org/grpc-promise/download/grpc-promise-1.1.0.tgz#15b0dcbea7b2a9248beda7c8a4425dfb8fb4a715"
+
 grpc@^1.8.0:
   version "1.8.0"
   resolved "http://registry.npm.taobao.org/grpc/download/grpc-1.8.0.tgz#9d49f1b05c19c4a35c480bd14c632386de6bf664"
@@ -3235,6 +3239,10 @@ supports-color@^4.0.0:
   resolved "http://registry.npm.taobao.org/supports-color/download/supports-color-4.5.0.tgz#be7a0de484dec5c5cddf8b3d59125044912f635b"
   dependencies:
     has-flag "^2.0.0"
+
+systeminformation@^3.33.12:
+  version "3.33.12"
+  resolved "http://registry.npm.taobao.org/systeminformation/download/systeminformation-3.33.12.tgz#bb96d176a751886fcc4123006e9a2b322e7e1cc8"
 
 tar-pack@^3.4.0:
   version "3.4.1"
