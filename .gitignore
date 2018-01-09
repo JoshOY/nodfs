@@ -68,7 +68,7 @@ lab
 
 # fs data
 fsdata/*.json
-fsdata/*.data
+fsdata/*.bin
 
 # config
 config/*.yaml

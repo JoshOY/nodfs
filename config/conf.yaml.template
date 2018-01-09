@@ -1,0 +1,8 @@
+namenode:
+  active: true
+  slaves:
+    - 127.0.0.1:20050
+  block_size_mb: 16
+datanode:
+  active: true
+  port: 20050
