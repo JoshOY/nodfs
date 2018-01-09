@@ -1,9 +1,11 @@
 import mongoose from 'mongoose';
 
-import Singleton from '../lib/singleton';
+class MongoDBConnector {
 
-export default class MongoDBConnector extends Singleton {
   connect(uri) {
+    if (this.conn) {
+      return this.conn;
+    }
     this.conn = mongoose.createConnection(uri, { server: { poolSize: 4 }});
     return this.conn;
   }
@@ -11,4 +13,16 @@ export default class MongoDBConnector extends Singleton {
   getConnection() {
     return (this.conn || null);
   }
+
+  closeConnection() {
+    if (this.conn) {
+      this.conn.disconnect();
+      this.conn = null;
+    }
+  }
+
 }
+
+global._DFS_DbManager = global._DFS_DbManager || new MongoDBConnector();
+
+export default global._DFS_DbManager;

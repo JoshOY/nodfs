@@ -5,10 +5,9 @@ import _ from 'lodash';
 import prjRoot from '../lib/prjroot';
 import Singleton from '../lib/singleton';
 
-class ConfigManager extends Singleton {
+class ConfigManager {
 
   constructor() {
-    super();
     this.config = {};
   }
 
@@ -26,9 +25,11 @@ class ConfigManager extends Singleton {
   }
 
   getConfig(item) {
-    return _.get(this.config, item, undefined);å
+    return _.get(this.config, item, undefined);
   }
 
 }
 
-export default new ConfigManager();
+global._DFS_Config = global._DFS_Config || new ConfigManager();
+
+export default global._DFS_Config;
