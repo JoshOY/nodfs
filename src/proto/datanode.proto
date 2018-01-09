@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package nodfs;
+
+option java_multiple_files = true;
+option java_package = "io.grpc.nodfs";
+option java_outer_classname = "NoDFSDataNodeProto";
+
+
+
+service DataNode {
+    rpc saveFile(FileDescriptor) returns (Ack) {}
+    rpc createDirectory(DirectoryDescriptor) returns (Ack) {}
+    rpc removeDirectory(AbsPathMsg) returns (Ack) {}
+    rpc removeFile(AbsPathMsg) returns (Ack) {}
+}
+
+message FileDescriptor {
+    string name = 1;
+    string absPath = 2;
+    string md5 = 3;
+    string fileSize = 4;
+}
+
+message DirectoryDescriptor {
+    string name = 1;
+    string absPath = 2;
+}
+
+message AbsPathMsg {
+    string absPath = 1;
+}
+
+message Ack {
+    bool ok = 1;
+}

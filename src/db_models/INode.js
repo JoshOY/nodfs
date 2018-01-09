@@ -16,6 +16,7 @@ export default (conn = mongoose) => {
     owner: Types.String,
     supergroup: Types.String,
     isDirectory: Types.Boolean,
+    mimeType: Types.String,
     blocks: [{
       blockId: Types.String,
       blockNodes: [Types.String],
