@@ -1,6 +1,6 @@
 import fs from 'fs';
 import multer from 'multer';
-import prjRoot from '../lib/prjroot';
+import prjRoot from '../../lib/prjroot';
 
 
 function getDestination (req, file, cb) {

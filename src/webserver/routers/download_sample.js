@@ -4,7 +4,7 @@
  */
 
 import fs from 'fs';
-import prjRoot from '../lib/prjroot';
+import prjRoot from '../../lib/prjroot';
 
 function writeStreamToRes(rs, res) {
   return new Promise((resolve, reject) => {
@@ -28,7 +28,7 @@ export default async function (req, res) {
   res.setHeader('Content-disposition', 'attachment; filename=big_file.tar');
 
   for (let i = 0; i < 5; ++i) {
-    let s = fs.createReadStream(prjRoot(`src/webserver/example_files/test_big_file.tar.part${i}`));
+    let s = fs.createReadStream(prjRoot(`src/webserver/routes/example_files/test_big_file.tar.part${i}`));
     fStreams.push(s);
   }
 

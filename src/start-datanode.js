@@ -5,7 +5,7 @@ import yaml from 'js-yaml';
 
 import FSErrors from './errors';
 import Config from './core/config';
-import NameNode from './core/namenode';
+import DataNode from './core/datanode';
 import prjRoot from './lib/prjroot';
 
 async function main() {
@@ -20,12 +20,10 @@ async function main() {
   /* Load config */
   Config.loadConfig();
   console.log(chalk.green('Config loaded successfully.'));
-  console.log(Config.config);
+  // console.log(Config.config);
 
-  if (Config.getConfig('namenode.active') === true) {
-    const namenodeInstance = new NameNode();
-    namenodeInstance.init();
-  }
+  const dataNodeInstance = new DataNode();
+  await dataNodeInstance.init();
 }
 
 main().catch((err) => {
