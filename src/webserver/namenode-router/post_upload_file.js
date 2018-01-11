@@ -7,9 +7,26 @@ import uuid from 'uuid';
 import prjRoot from '../../lib/prjroot';
 import Models from '../../db_models';
 import Config from '../../core/config';
+import getRandom from '../../lib/get_random_from_array';
+import NodeInstance from '../../core/node_instance';
 
 const INodeModel = Models.INodeModel;
 
+function selectStorageDataNodes() {
+  const replicationNum = Config.getConfig('datanode.replicates');
+  const slaves = Config.getConfig('namenode.slaves');
+  if (slaves.length <= replicationNum) {
+    return slaves;
+  }
+  // else
+  return getRandom(slaves, replicationNum);
+}
+
+/**
+  Form format:
+ name
+
+ */
 
 export default async function (req, res) {
   const busboy = new Busboy({
@@ -47,6 +64,14 @@ export default async function (req, res) {
       formFields[fieldName] = val;
     });
     busboy.on('finish', async () => {
+      const storageNodes = selectStorageDataNodes();
+      const storageNodeInstances = storageNodes.map((nodeHost) => (new NodeInstance(nodeHost)));
+      await Promise.all(storageNodeInstances.map((nodeInst, idx) => {
+        return nodeInst.commandCreateBlockAsync(
+          allocBlocks[idx],
+          fs.readFileSync(prjRoot('./tmp/' + allocBlocks[idx] + '.bin'))
+        );
+      }));
       const blocks = allocBlocks.map((blockId, idx) => {
         return {
           blockId,

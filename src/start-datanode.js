@@ -7,6 +7,7 @@ import FSErrors from './errors';
 import Config from './core/config';
 import DataNode from './core/datanode';
 import prjRoot from './lib/prjroot';
+import dataNodeServer from './webserver/datanode-server';
 
 async function main() {
   try {
@@ -24,6 +25,7 @@ async function main() {
 
   const dataNodeInstance = new DataNode();
   await dataNodeInstance.init();
+  dataNodeServer.listen();
 }
 
 main().catch((err) => {
