@@ -7,7 +7,7 @@ import FSErrors from './errors';
 import Config from './core/config';
 import DataNode from './core/datanode';
 import prjRoot from './lib/prjroot';
-import dataNodeServer from './webserver/datanode-server';
+import DataNodeServer from './webserver/datanode-server';
 
 async function main() {
   try {
@@ -17,6 +17,7 @@ async function main() {
       'Configuration file not found. Please check if <project_root>/config/conf.yaml exists.'
     );
   }
+  const dataNodeServer = new DataNodeServer();
 
   /* Load config */
   Config.loadConfig();

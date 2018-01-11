@@ -53,4 +53,6 @@ export default (conn = mongoose) => {
   };
 
   iNodeModel = conn.model('INode', iNodeSchema);
+
+  return iNodeModel;
 };

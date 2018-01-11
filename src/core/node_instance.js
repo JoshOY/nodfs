@@ -9,7 +9,7 @@ export default class NodeInstance {
   }
 
   commandCreateBlockAsync = async (blockId, buffer) => {
-    const form = req.form();
+    // const form = req.form();
     return await requestPromise({
       method: 'POST',
       uri: `http://${this.nodeHost}:30002/api/write_block`,
