@@ -2,12 +2,11 @@ namenode:
   host: localhost
   rpcPort: 30001
   webPort: 30000
-  active: true
   slaves:
     - 127.0.0.1
 datanode:
-  active: true
-  port: 20050
+  replicates: 2
+  webPort: 30000
 block_size_mb: 16
 mongodb:
   uri: mongodb://localhost:27017/nodfs
