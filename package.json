@@ -27,6 +27,7 @@
     "grpc-promise": "^1.1.0",
     "js-yaml": "^3.10.0",
     "lodash": "^4.17.4",
+    "mapred": "^0.1.0",
     "minimist": "^1.2.0",
     "mongoose": "^4.13.9",
     "multer": "^1.3.0",

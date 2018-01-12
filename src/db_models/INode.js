@@ -52,6 +52,18 @@ export default (conn = mongoose) => {
     ).exec();
   };
 
+  iNodeSchema.statics.createDirectory = async (absPath) => {
+    const newDoc = new iNodeModel(_.assign({}, {
+      _id: new mongoose.Types.ObjectId(),
+      modificationTime: Date.now(),
+      accessTime: Date.now(),
+      isDirectory: true,
+      blocks: [],
+      children: [],
+    }));
+    return await newDoc.save();
+  };
+
   iNodeModel = conn.model('INode', iNodeSchema);
 
   return iNodeModel;

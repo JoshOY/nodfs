@@ -14,6 +14,11 @@ service DataNode {
     rpc removeFile(AbsPathMsg) returns (Ack) {}
 }
 
+message FileBlock {
+    string blockId = 1;
+    bytes data = 2;
+}
+
 message DataNodeDetailsInfo {
     string cpu_manufacturer = 1;
     string cpu_brand = 2;
